@@ -1,21 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask Her Out</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <img src="manja.gif" alt="Your Image" />
-      <h1>DO you love me? 🤗</h1>
-      <p>~adeel tera hi hai</p>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Additional CSS for styling the input field */
+        #name {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding and border are included in width */
+        }
 
-      <div class="btn">
-        <a href="yes.html">Yes</a>
-        <a href="no1.html">No</a>
-      </div>
+        /* Style the submit button */
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Change button background color on hover */
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="nameForm">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name">
+            <button type="submit">Submit</button>
+        </form>
+        <img src="manja.gif" alt="Your Image" id="image" class="hidden" />
+        <h1 id="welcomeMessage" class="hidden">Do you love me? 🤗</h1>
+        <p class="hidden">~adeel sirf tmhara hai</p>
+
+        <div class="btn" id="btnContainer">
+            <a href="yes.html" id="yesBtn" class="hidden">Yes</a>
+            <a href="no1.html" id="noBtn" class="hidden">No</a>
+        </div>
     </div>
-  </body>
+
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            document.getElementById("welcomeMessage").innerText = "Hi, " + name + "! Do you love me? 🤗";
+            showElements();
+        });
+
+        function showElements() {
+            document.getElementById("image").classList.remove("hidden");
+            document.getElementById("welcomeMessage").classList.remove("hidden");
+            document.querySelector("p").classList.remove("hidden");
+
+            // Set visibility of buttons to 'visible'
+            document.getElementById("yesBtn").classList.remove("hidden");
+            document.getElementById("noBtn").classList.remove("hidden");
+        }
+    </script>
+</body>
 </html>
