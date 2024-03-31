@@ -56,6 +56,7 @@
             var name = document.getElementById("name").value;
             document.getElementById("welcomeMessage").innerText = "Hi, " + name + "! Do you love me? 🤗";
             showElements();
+            hideNameForm();
         });
 
         function showElements() {
@@ -66,6 +67,10 @@
             // Set visibility of buttons to 'visible'
             document.getElementById("yesBtn").classList.remove("hidden");
             document.getElementById("noBtn").classList.remove("hidden");
+        }
+
+        function hideNameForm() {
+            document.getElementById("nameForm").classList.add("hidden");
         }
     </script>
 </body>
